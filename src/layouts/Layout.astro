@@ -1,0 +1,63 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang='fr'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<meta name='generator' content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header
+			class='relative flex h-36 justify-center bg-gradient-to-r from-primary to-secondary pt-4 pb-4 text-center text-2xl text-white md:h-96 md:text-3xl xl:text-4xl'>
+			<h1>
+				NS<span id='header-title-mobile' class='rounded-2xl bg-white'
+					>mobile</span
+				>
+			</h1>
+			<svg
+				xmlns='http://www.w3.org/2000/svg'
+				viewBox='0 0 1440 320'
+				class='absolute bottom-0'>
+				<path
+					class='w-full'
+					fill='#ffffff'
+					fill-opacity='1'
+					d='M0,96L26.7,101.3C53.3,107,107,117,160,149.3C213.3,181,267,235,320,224C373.3,213,427,139,480,112C533.3,85,587,107,640,138.7C693.3,171,747,213,800,202.7C853.3,192,907,128,960,128C1013.3,128,1067,192,1120,224C1173.3,256,1227,256,1280,218.7C1333.3,181,1387,107,1413,69.3L1440,32L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z'
+				></path>
+			</svg>
+		</header>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			#da62c4 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: #f6f6f6;
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+			DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+	#header-title-mobile {
+		color: #1f2937;
+	}
+</style>
+
