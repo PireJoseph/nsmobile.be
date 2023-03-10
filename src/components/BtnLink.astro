@@ -1,0 +1,19 @@
+---
+export interface Props {
+	title: string;
+	href: string;
+	icon?: string;
+}
+
+const { href, title, icon = null } = Astro.props;
+---
+
+<a class='inline-flex flex-col items-center gap-2' href={href} title={title}>
+	<figure class='flex h-20 w-20 flex-col items-center justify-end'>
+		{icon && <img src={icon} width='64' height='64' />}
+	</figure>
+	<span
+		class='inline-flex w-32 justify-center rounded-4xl bg-primary py-3 text-xl text-black'
+		>{title}</span
+	>
+</a>

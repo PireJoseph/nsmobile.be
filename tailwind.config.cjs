@@ -14,14 +14,17 @@ module.exports = {
 					light: '#1E454E',
 					dark: '#1E454E',
 				},
+				background: '#F6F6F6',
 			},
 			width: {
 				104: '26rem',
 				112: '28rem',
 				128: '32rem',
 			},
+			borderRadius: {
+				'4xl': '2rem',
+			},
 		},
 	},
 	plugins: [],
 };
-
