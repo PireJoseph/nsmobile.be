@@ -9,11 +9,21 @@ const { href, title, icon = null } = Astro.props;
 ---
 
 <a class='inline-flex flex-col items-center gap-2' href={href} title={title}>
-	<figure class='flex h-20 w-20 flex-col items-center justify-end'>
-		{icon && <img src={icon} width='64' height='64' />}
+	<figure
+		class='flex h-14 w-14 flex-col items-center justify-end lg:h-16 lg:w-16 xl:h-20 xl:w-20'>
+		{icon && <img src={icon} width='auto' height='auto' />}
 	</figure>
 	<span
-		class='inline-flex w-32 justify-center rounded-4xl bg-primary py-3 text-xl text-black'
+		class='cl:px-2 inline-flex w-32 justify-center rounded-4xl bg-primary py-3 text-xl xl:w-36 xl:text-2xl'
 		>{title}</span
 	>
 </a>
+
+<style lang='scss'>
+	a:hover {
+		opacity: 0.8;
+		span {
+			opacity: 0.7;
+		}
+	}
+</style>

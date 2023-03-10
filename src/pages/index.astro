@@ -19,15 +19,14 @@ const LINKS = [
 ];
 ---
 
-<Layout title='Welcome to Astro.'>
-	<main
-		class='mx-auto mt-8 flex w-64 flex-col justify-between gap-4 md:flex-row md:gap-16'>
+<Layout>
+	<div
+		class='flex w-full w-64 flex-col justify-center gap-8 pt-8 md:flex-row md:gap-32'>
 		{
 			LINKS.map((link) => (
 				<BtnLink href={link.href} title={link.title} icon={link.icon} />
 			))
 		}
-	</main>
-
-	<style></style>
+	</div>
 </Layout>
+<style></style>
