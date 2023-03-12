@@ -3,6 +3,7 @@ import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import prefetch from '@astrojs/prefetch';
 import tailwind from '@astrojs/tailwind';
+import image from '@astrojs/image';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,8 +11,12 @@ export default defineConfig({
 	adapter: node({
 		mode: 'standalone',
 	}),
-	experimental: {
-		assets: true,
-	},
-	integrations: [sitemap(), prefetch(), tailwind()],
+	integrations: [
+		sitemap(),
+		prefetch(),
+		tailwind(),
+		image({
+			serviceEntryPoint: '@astrojs/image/sharp',
+		}),
+	],
 });

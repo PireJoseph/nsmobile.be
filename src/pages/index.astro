@@ -1,9 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from '@astrojs/image/components';
+
 import BtnLink from '../components/BtnLink.astro';
 
-import cityIcon from '../assets/svg/city.svg';
-import userIcon from '../assets/svg/user-tie.svg';
+import cityIcon from '../assets/img/building.png';
+import userIcon from '../assets/img/house.png';
 
 const LINKS = [
 	{
@@ -19,14 +21,20 @@ const LINKS = [
 ];
 ---
 
-<Layout>
+<BaseLayout>
 	<div
 		class='flex w-full w-64 flex-col justify-center gap-8 pt-8 md:flex-row md:gap-32'>
 		{
 			LINKS.map((link) => (
-				<BtnLink href={link.href} title={link.title} icon={link.icon} />
+				<BtnLink href={link.href} title={link.title}>
+					{link.icon && (
+						<figure class='flex h-14 w-14 flex-col items-center justify-end lg:h-16 lg:w-16 xl:h-20 xl:w-20'>
+							<Image src={link.icon} width={50} height={50} alt={link.title} />
+						</figure>
+					)}
+				</BtnLink>
 			))
 		}
 	</div>
-</Layout>
+</BaseLayout>
 <style></style>

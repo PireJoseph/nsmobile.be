@@ -2,19 +2,15 @@
 export interface Props {
 	title: string;
 	href: string;
-	icon?: string;
 }
 
-const { href, title, icon = null } = Astro.props;
+const { href, title } = Astro.props;
 ---
 
 <a class='inline-flex flex-col items-center gap-2' href={href} title={title}>
-	<figure
-		class='flex h-14 w-14 flex-col items-center justify-end lg:h-16 lg:w-16 xl:h-20 xl:w-20'>
-		{icon && <img src={icon} width='auto' height='auto' />}
-	</figure>
+	<slot />
 	<span
-		class='cl:px-2 inline-flex w-32 justify-center rounded-4xl bg-primary py-3 text-xl xl:w-36 xl:text-2xl'
+		class='cl:px-2 inline-flex w-32 justify-center rounded-4xl bg-primary py-3 text-2xl xl:w-44 xl:text-3xl'
 		>{title}</span
 	>
 </a>
