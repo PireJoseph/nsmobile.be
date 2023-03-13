@@ -13,7 +13,13 @@ export default defineConfig({
 		mode: 'standalone',
 	}),
 	integrations: [
-		sitemap(),
+		sitemap({
+			customPages: [
+				'https://www.nsmobile.be',
+				'https://www.nsmobile.be/particuliers',
+				'https://www.nsmobile.be/entreprises',
+			],
+		}),
 		prefetch(),
 		tailwind(),
 		image({

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from '@astrojs/image/components';
 
 import BtnLink from '../components/BtnLink.astro';
 
@@ -29,7 +28,7 @@ const LINKS = [
 				<BtnLink href={link.href} title={link.title}>
 					{link.icon && (
 						<figure class='flex h-14 w-14 flex-col items-center justify-end lg:h-16 lg:w-16 xl:h-20 xl:w-20'>
-							<Image
+							<img
 								src={link.icon.src}
 								width={50}
 								height={50}
