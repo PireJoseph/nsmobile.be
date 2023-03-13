@@ -6,7 +6,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: front.nsmobile.be:0.0.1
+    container_name: front.nsmobile.be
+    image: front.nsmobile.be
     restart: unless-stopped
     networks:
       - edge

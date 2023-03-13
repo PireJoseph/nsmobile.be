@@ -2,4 +2,8 @@
 export HOST=0.0.0.0;
 export PORT=3000;
 export NODE_ENV=production;
-node .output/server/index.mjs; 
+
+npm install -y 
+npm run build
+
+node dist/server/entry.mjs;
