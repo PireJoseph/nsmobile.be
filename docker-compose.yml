@@ -12,7 +12,7 @@ services:
     networks:
       - edge
     labels:
-      caddy: www.nsmobile.be
+      caddy: nsmobile.be
       caddy.reverse_proxy: '{{upstreams 3000}}'
 
 networks:
