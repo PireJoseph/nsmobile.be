@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  ### Front
+  front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: front.nsmobile.be:0.0.1
+    restart: unless-stopped
+    networks:
+      - edge
+    labels:
+      caddy: www.nsmobile.be
+      caddy.reverse_proxy: '{{upstreams 3000}}'
+
+networks:
+  edge:
+    external: true
