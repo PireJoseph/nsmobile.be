@@ -11,10 +11,12 @@ export const prerender = true;
 		<head>
 			<div>
 				<h1
-					class='text-center text-xl font-black text-primary lg:mt-20 lg:text-5xl'>
+					class='text-center text-4xl font-black text-primary lg:mt-20 lg:text-5xl'>
 					Nsmobile IT Solution
 				</h1>
-				<p class='text-right text-shadow'>Its coming soon...</p>
+				<p class='text-right text-sm text-shadow lg:text-lg'>
+					Its coming soon...
+				</p>
 			</div>
 		</head>
 		<main class='flex flex-col justify-center lg:flex-row'>
@@ -28,7 +30,7 @@ export const prerender = true;
 			</aside>
 			<div class='flex max-w-lg flex-col items-center text-center lg:shrink'>
 				<h2
-					class='mt-8 max-w-lg text-3xl font-black text-light lg:mt-16 lg:text-5xl'>
+					class='mt-8 max-w-lg px-4 text-3xl font-black text-light lg:mt-16 lg:text-5xl'>
 					Looking for something ?
 				</h2>
 				<p class='lg:my-18 my-4 max-w-xl text-shadow lg:my-8'>
@@ -46,10 +48,14 @@ export const prerender = true;
 				</a>
 			</div>
 		</main>
-		<footer class='text-shadow'>© Nsmobile</footer>
+		<footer class='text-sm text-shadow lg:text-lg'>© Nsmobile</footer>
 	</div>
 
 	<style>
+		h1,
+		h2 {
+			font-family: 'Roboto', sans-serif;
+		}
 		h2 {
 			-webkit-text-stroke: 1px #7e72f4;
 			text-stroke: 1px #7e72f4;

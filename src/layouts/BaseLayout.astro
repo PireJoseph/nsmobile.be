@@ -12,6 +12,12 @@ const { title = 'NSmobile.be' } = Astro.props;
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width' />
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<link rel='preconnect' href='https://fonts.googleapis.com' />
+		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+		<link
+			href='https://fonts.googleapis.com/css2?family=Nunito:wght@500&family=Roboto:wght@900&display=swap'
+			rel='stylesheet'
+		/>
 		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -23,8 +29,7 @@ const { title = 'NSmobile.be' } = Astro.props;
 </html>
 <style is:global>
 	@font-face {
-		font-family: 'CormorantGaramond';
-		src: url('/fonts/CormorantGaramond-Bold.ttf');
+		font-family: 'Nunito', sans-serif;
 		font-weight: normal;
 		font-style: normal;
 		font-display: swap;
