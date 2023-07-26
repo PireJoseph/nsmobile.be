@@ -1,5 +1,4 @@
 ---
-import Wave from '../components/Wave.astro';
 export interface Props {
 	title?: string;
 }
@@ -17,22 +16,9 @@ const { title = 'NSmobile.be' } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class='h-full'>
-		<div class='flex h-full flex-col'>
-			<header
-				class='md:h-86 flex h-48 flex-col justify-between bg-gradient-to-r from-primary to-dark pt-8 text-center text-2xl text-white sm:h-64 md:text-3xl xl:text-4xl'>
-				<a
-					rel='prefetch'
-					href='/'
-					title='Accueil'
-					class='inline-blox mx-auto w-auto hover:opacity-50'>
-					NS<span class='rounded-3xl bg-white text-dark'>mobile</span>
-				</a>
-				<Wave />
-			</header>
-			<main class='grow'>
-				<slot />
-			</main>
-		</div>
+		<main class='flex h-full flex-col'>
+			<slot />
+		</main>
 	</body>
 </html>
 <style is:global>
@@ -44,16 +30,10 @@ const { title = 'NSmobile.be' } = Astro.props;
 		font-display: swap;
 	}
 	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			#da62c4 30%,
-			white 60%
-		);
 	}
 	html {
-		background-color: #f6f6f6;
+		background-color: #ededed;
 		font-family: 'CormorantGaramond', sans-serif;
 	}
 </style>
+

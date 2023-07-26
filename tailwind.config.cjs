@@ -4,23 +4,13 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				dark: '#1f2937',
-				primary: {
-					DEFAULT: '#1BA39C',
-					light: '#1B9E98',
-					dark: '#1F303D',
-				},
-				secondary: {
-					DEFAULT: '#1E454E',
-					light: '#1E454E',
-					dark: '#1E454E',
-				},
-				background: '#F6F6F6',
+				primary: '#233DFF',
+				light: '#FFE8E9',
+				shadow: '#5D6370',
 			},
 			width: {
 				104: '26rem',
 				112: '28rem',
-				128: '32rem',
 			},
 			borderRadius: {
 				'4xl': '2rem',
@@ -29,3 +19,4 @@ module.exports = {
 	},
 	plugins: [],
 };
+

@@ -1,46 +1,59 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-import BtnLink from '../components/BtnLink.astro';
-
-import cityIcon from '../assets/img/building.png';
-import userIcon from '../assets/img/house.png';
-
-const LINKS = [
-	{
-		href: '/particuliers',
-		title: 'Particuliers',
-		icon: cityIcon,
-	},
-	{
-		href: '/entreprises',
-		title: 'Entreprises',
-		icon: userIcon,
-	},
-];
+import comingSoon from '../assets/img/coming_soon.gif';
 
 export const prerender = true;
 ---
 
 <BaseLayout>
-	<div
-		class='flex w-full w-64 flex-col justify-center gap-8 pt-8 md:flex-row md:gap-32'>
-		{
-			LINKS.map((link) => (
-				<BtnLink href={link.href} title={link.title}>
-					{link.icon && (
-						<figure class='flex h-14 w-14 flex-col items-center justify-end lg:h-16 lg:w-16 xl:h-20 xl:w-20'>
-							<img
-								src={link.icon.src}
-								width={50}
-								height={50}
-								alt={link.title}
-							/>
-						</figure>
-					)}
-				</BtnLink>
-			))
-		}
+	<div class='flex h-screen flex-col items-center justify-between px-4 py-8'>
+		<head>
+			<div>
+				<h1
+					class='text-center text-xl font-black text-primary lg:mt-20 lg:text-5xl'>
+					Nsmobile IT Solution
+				</h1>
+				<p class='text-right text-shadow'>Its coming soon...</p>
+			</div>
+		</head>
+		<main class='flex flex-col justify-center lg:flex-row'>
+			<aside class='mx-auto flex lg:w-auto lg:shrink-0 lg:grow'>
+				<img
+					class='w-72 max-w-3xl lg:w-full'
+					src={comingSoon.src}
+					width={comingSoon.width}
+					height={comingSoon.height}
+				/>
+			</aside>
+			<div class='flex max-w-lg flex-col items-center text-center lg:shrink'>
+				<h2
+					class='mt-8 max-w-lg text-3xl font-black text-light lg:mt-16 lg:text-5xl'>
+					Looking for something ?
+				</h2>
+				<p class='lg:my-18 my-4 max-w-xl text-shadow lg:my-8'>
+					It's not here yet, but we'll let you in on a secret. It's coming
+					really, really soon. So sit tight and check back in on <span
+						class='font-bold'>August 31</span
+					>. You just might see something that will blow your socks off!
+				</p>
+				<p class='my-4'>Really excited to get in touch with us?</p>
+				<a
+					class='inline-block w-32 rounded-lg bg-primary py-2 text-white'
+					href='https://nsmobile6k.be/users/nsmobile6k'
+					title='contact'>
+					contact us
+				</a>
+			</div>
+		</main>
+		<footer class='text-shadow'>© Nsmobile</footer>
 	</div>
+
+	<style>
+		h2 {
+			-webkit-text-stroke: 1px #7e72f4;
+			text-stroke: 1px #7e72f4;
+		}
+	</style>
 </BaseLayout>
-<style></style>
+
