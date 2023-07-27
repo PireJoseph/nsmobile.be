@@ -7,7 +7,7 @@ const { title = 'NSmobile.be' } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang='fr' class='h-full'>
+<html lang='fr'>
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width' />
@@ -21,10 +21,8 @@ const { title = 'NSmobile.be' } = Astro.props;
 		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class='h-full'>
-		<main class='flex h-full flex-col'>
-			<slot />
-		</main>
+	<body>
+		<slot />
 	</body>
 </html>
 <style is:global>
@@ -41,4 +39,3 @@ const { title = 'NSmobile.be' } = Astro.props;
 		font-family: 'CormorantGaramond', sans-serif;
 	}
 </style>
-

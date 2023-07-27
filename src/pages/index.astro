@@ -7,7 +7,8 @@ export const prerender = true;
 ---
 
 <BaseLayout>
-	<div class='flex h-screen flex-col items-center justify-between px-4 py-8'>
+	<div
+		class='flex max-h-screen flex-col items-center justify-between px-4 py-8 lg:h-screen'>
 		<head>
 			<div>
 				<h1
@@ -31,15 +32,18 @@ export const prerender = true;
 			<div class='flex max-w-lg flex-col items-center text-center lg:shrink'>
 				<h2
 					class='mt-8 max-w-lg px-4 text-3xl font-black text-light lg:mt-16 lg:text-5xl'>
-					Looking for something ?
+					Looking for something&nbsp;?
 				</h2>
-				<p class='lg:my-18 my-4 max-w-xl text-shadow lg:my-8'>
+				<p
+					class='lg:my-18 lg:text-md my-4 max-w-xl text-sm text-shadow lg:my-8'>
 					It's not here yet, but we'll let you in on a secret. It's coming
 					really, really soon. So sit tight and check back in on <span
 						class='font-bold'>August 31</span
 					>. You just might see something that will blow your socks off!
 				</p>
-				<p class='my-4'>Really excited to get in touch with us?</p>
+				<p class='lg:text-md my-4 text-sm'>
+					Really excited to get in touch with us?
+				</p>
 				<a
 					class='inline-block w-32 rounded-lg bg-primary py-2 text-white'
 					href='https://nsmobile6k.be/users/nsmobile6k'
@@ -48,7 +52,7 @@ export const prerender = true;
 				</a>
 			</div>
 		</main>
-		<footer class='text-sm text-shadow lg:text-lg'>© Nsmobile</footer>
+		<footer class='mt-8 text-sm text-shadow lg:text-lg'>© Nsmobile</footer>
 	</div>
 
 	<style>
@@ -62,4 +66,3 @@ export const prerender = true;
 		}
 	</style>
 </BaseLayout>
-
