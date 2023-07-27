@@ -10,7 +10,16 @@ const { title = 'NSmobile.be' } = Astro.props;
 <html lang='fr'>
 	<head>
 		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<meta
+			name='description'
+			content="site vitrine d'Nsmobile, votre partenaire IT. Consulutance IT, carte de visite connectée, réparation de smartphones, maintenace ordinateurs.
+		disponible 7/7 de 11h à 23h00"
+		/>
+		<meta
+			name='keywords'
+			content='NSmobile, IT, informatique, réparation, maintenance, consultance, smartphone, ordinateur, tablette, carte de visite connectée, conseils'
+		/>
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<link rel='preconnect' href='https://fonts.googleapis.com' />
 		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
@@ -18,6 +27,7 @@ const { title = 'NSmobile.be' } = Astro.props;
 			href='https://fonts.googleapis.com/css2?family=Nunito:wght@500&family=Roboto:wght@900&display=swap'
 			rel='stylesheet'
 		/>
+		<meta name='author' content='Nsmobile' />
 		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
 	</head>
