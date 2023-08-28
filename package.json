@@ -1,24 +1,28 @@
 {
-  "name": "nsmobile-be",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/node": "^5.1.0",
-    "@astrojs/prefetch": "^0.2.0",
-    "@astrojs/sitemap": "^1.2.0",
-    "@astrojs/tailwind": "^4.0.0",
-    "astro": "^2.9.3"
-  },
-  "devDependencies": {
-    "prettier": "^2.8.4",
-    "prettier-plugin-tailwindcss": "^0.2.4",
-    "sass": "^1.58.3"
-  }
+	"name": "nsmobile-be",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^0.19.7",
+		"@astrojs/node": "^5.1.0",
+		"@astrojs/partytown": "^1.2.3",
+		"@astrojs/prefetch": "^0.2.0",
+		"@astrojs/sitemap": "^1.2.0",
+		"@astrojs/tailwind": "^4.0.0",
+		"astro": "^2.10.14"
+	},
+	"devDependencies": {
+		"daisyui": "^3.6.3",
+		"prettier": "^2.8.8",
+		"prettier-plugin-astro": "^0.12.0",
+		"prettier-plugin-tailwindcss": "^0.2.8",
+		"sass": "^1.58.3"
+	}
 }

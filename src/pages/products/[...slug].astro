@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+import { getCollection, getEntry } from 'astro:content';
+
+
+
+const { productEntry } = Astro.props;
+
+export async function getStaticPaths() {
+  const productEntries = await getCollection('product');
+  return productEntries.map(productEntry => ({
+    params: { slug: productEntry.slug }, props: { productEntry },
+  }));
+}
+
+const links = [
+  {
+		name: "Comment ?",
+		path: "#how"
+	},
+	{
+		name: "Fonctionnalités",
+		path: "#features"
+	},
+	{
+		name: "Tarifs",
+		path: "#price"
+	},
+	{
+		name: "Formulaire",
+		path: "#form"
+	},
+]
+
+const stepsColors = [
+  '#D9D9D9',
+  '#C51162',
+  '#10B5D1',
+  '#FFD600'
+]
+
+const howEntry = await getEntry(productEntry.data.how);
+const { Content: HowEntryContent } = await howEntry.render();
+const featuresEntry = await getEntry(productEntry.data.features);
+const { Content: FeaturesEntryContent } = await featuresEntry.render();
+const priceEntry = await getEntry(productEntry.data.price);
+const { Content: PriceEntryContent } = await priceEntry.render();
+const formEntry = await getEntry(productEntry.data.form);
+const { Content: FormEntryContent } = await formEntry.render();
+
+export const prerender = true;
+---
+
+<BaseLayout links={links} title={productEntry.data.card_title}>
+  <div class="w-full flex flex-col justify-center items-center relative gap-2" slot="hero">
+		<img src={productEntry.data.img} class="w-80 xl:w-124 xl:absolute xl:bottom-32 xl:right-16"/>
+		<h1 class="text-center xl:text-left text-6xl xl:text-8xl font-bold max-w-104 xl:absolute xl:top-32 xl:left-32">{productEntry.data.page_title}</h1>
+	</div>
+	<div slot="default">
+
+    <section class="bg-white">
+      <div id="how"></div>
+      <div class="text-center px-8 py-24 text-text_color mx-auto max-w-6xl">
+        <h2 class="text-4xl font-bold mb-8">Comment ça marche ?</h2>
+        <div class="font-light"><HowEntryContent /></div>
+      </div>
+      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-center gap-12 mb-24">
+        {howEntry.data.steps?.map((step, index)=> 
+          <div class="flex flex-col items-center gap-2">
+            <figure class="text-5xl font-black text-white w-32 h-32 rounded-full flex items-center justify-center" style={`background-color: ${stepsColors[index]}`}>{index}</figure>
+            <div class="flex flex-col items-center text-center gap-1">
+              <h3 class="font-bold">{step.title}</h3>
+              <h3 class="font-light px-8">{step.text}</h3>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <section class="bg-background_light text-text_color">
+      <div id="features"></div>
+      <div class="text-center px-8 py-24  mx-auto max-w-6xl">
+        <h2 class="text-4xl font-bold mb-8">Fonctionnalités</h2>
+        <div class="font-light flex flex-col gap-4"><FeaturesEntryContent /></div>
+      </div>
+    </section>
+
+    <section class="bg-white text-text_color">
+      <div id="price"></div>
+      <div class="text-center px-8 py-24 text-text_color mx-auto max-w-6xl">
+        <h2 class="text-4xl font-bold mb-8">Prix</h2>
+        <div class="font-light flex flex-col gap-4"><PriceEntryContent /></div>
+        { priceEntry.data?.grid?.length && (
+          <div class="overflow-x-auto">
+            <table class="table table-zebra max-w-xl mx-auto">
+              <thead>
+                <tr>
+                  <th >Quantité</th>
+                  <th >prix</th>
+                </tr>
+              </thead>
+            {priceEntry.data?.grid.map(line=>
+              <tr>
+                <td>{line.title}</td>
+                <td>{line.text}</td>
+              </tr>
+            )}  
+            </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <section class="bg-background_light text-text_color">
+      <div id="form"></div>
+      <div class="text-center px-8 py-24  mx-auto max-w-6xl">
+        <h2 class="text-4xl font-bold mb-8">Formulaire</h2>
+        <div class="font-light"><FormEntryContent /></div>
+      </div>
+    </section>
+
+
+  </div>
+</BaseLayout>

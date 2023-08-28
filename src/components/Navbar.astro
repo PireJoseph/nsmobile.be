@@ -1,0 +1,101 @@
+---
+import Logo from '../../public/favicon.webp'
+
+const { links } = Astro.props; 
+---
+<div class="navbar px-4">
+	<div class="navbar-start">
+	  <div class="dropdown">
+		<label tabindex="0" class="btn btn-ghost lg:hidden">
+		  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+		</label>
+		<ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-64 bg-white text-black opacity-50">
+			{links.map((link: any)=> {
+				const {name, path, children} = link;
+				if(children) {
+					return  (<li>
+								<a href={path}>{name}</a>
+								<ul class="p-2">
+									{children.map((child: any)=><li><a rel="prefetch" href={child.path}>{child.name}</a></li>)}
+								</ul>
+							</li>)
+				} 
+				return <li><a rel="prefetch" href={path}>{ name }</a></li>
+			})}
+		</ul>
+	  </div>
+	  <a rel="prefetch" href="/" class="btn btn-ghost normal-case text-lg ">
+		<div class="flex items-center justify-start">
+			<figure class="bg-white rounded-full w-12 h-12 flex items-center justify-center">
+				<img alt="logo" title="logo" height="40px" width="40px" src={Logo.src}/>
+			</figure>
+			<span class="ml-2">Nsmobile</span>
+		</div>
+	  </a>
+	</div>
+	<div class="navbar-end hidden lg:flex ">
+	  <ul class="menu menu-horizontal px-1">
+		{links.map((link:any, index:number)=> {
+			const {name, path, children} = link;
+			if(children) {
+				return  (<li tabindex={index}>
+							<details >
+								<summary>{name}</summary>
+								<ul class="p-2 text-black">
+									{children.map((child:any)=><li><a rel="prefetch" href={child.path}>{child.name}</a></li>)}
+								</ul>
+							</details>
+						</li>)
+			} 
+			return <li><a rel="prefetch" href={path}>{ name }</a></li>
+		})}
+	  </ul>
+	</div>
+</div>
+<!-- <div class="flex justify-between hidden md:flex">
+	<div class="bg-white text-black flex justify-center items-center font-bold pl-2 pr-4 py-2 " >
+		<img alt="logo" title="logo" height="40px" width="40px" src={Logo.src}/>
+		<span>Nsmobile</span>
+	</div>
+	<nav class=" justify-end gap-2 py-2 ">
+		{links.map((link, index)=> {
+			const {name, path} = link;
+			return <a  href={path} class={ "font-bold px-4 py-1 inline-flex justify-center text-center h-auto " + ((index === 0) ? "bg-primary rounded rounded-3xl" : "")}>{ name }</a>
+		})}
+	
+	</nav>
+
+</div>
+
+<nav id="mobile-navbar" class="relative flex md:hidden text-white mb-12 ">
+	<div class="bg-white text-black  font-bold pl-2 pr-4 py-2 absolute top-0 left-0 z-10" >
+		<div class="flex items-center justify-start">
+			<img alt="logo" title="logo" height="40px" width="40px" src={Logo.src}/>
+			<span>Nsmobile</span>
+		</div>
+	</div>
+	<button id="menu-toggle" class="  font-bold absolute top-3 right-7 z-10 ">
+		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+		  </svg>
+	</button>
+	<div id="menu-content" class="bg-white text-black w-full hidden pt-12 pb-4 pr-4 flex flex-col justify-end items-end absolute top-0 ">
+		{links.map((link, index)=> {
+			const {name, path} = link;
+			return <a  href={path} class={ "font-bold px-4 py-1 inline-flex justify-center text-center h-auto " + ((index === 0) ? "bg-primary rounded rounded-3xl" : "")}>{ name }</a>
+		})}
+	</div>
+</nav>
+
+<script>
+	const mobile_navbar = document.getElementById("mobile-navbar");
+	const menu_toggle_btn = document.getElementById("menu-toggle");
+	const menu_content = document.getElementById("menu-content");
+
+	menu_toggle_btn?.addEventListener("click", () => {
+		menu_content?.classList.toggle("hidden");
+		mobile_navbar?.classList.toggle("bg-white");
+		menu_toggle_btn.classList.toggle("text-black");
+	})
+
+</script> -->

@@ -1,69 +1,135 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
 
-import comingSoon from '../assets/img/coming_soon.gif';
+import { getCollection } from 'astro:content';
 
+const allProducts = await getCollection('product');
+const allTestimonials = await getCollection('testimonial');
+
+import teamIMG from '../../public/team.webp'
+
+const links = [
+	{
+		name: "Produits",
+		path: "#products",
+		children: allProducts
+			.sort((a,b)=> a.data.order - b.data.order)
+			.map(product => ({name: product.data.card_title, path: "products/" + product.slug}))
+	},
+	{
+		name: "Notre équipe",
+		path: "#team"
+	},
+	{
+		name: "Nos collaborations",
+		path: "#partners"
+	},
+	{
+		name: "Contact",
+		path: "#contact"
+	}
+]
 export const prerender = true;
 ---
 
-<BaseLayout>
-	<div
-		class='flex max-h-screen flex-col items-center justify-between px-4 py-8 lg:h-screen'>
-		<head>
-			<div>
-				<h1
-					class='text-center text-4xl font-black text-primary lg:mt-20 lg:text-5xl'>
-					Nsmobile IT Solution
-				</h1>
-				<p class='text-right text-sm text-shadow lg:text-lg'>
-					Its coming soon...
-				</p>
-			</div>
-		</head>
-		<main class='flex flex-col justify-center lg:flex-row'>
-			<aside class='mx-auto flex lg:w-auto lg:shrink-0 lg:grow'>
-				<img
-					class='w-72 max-w-3xl lg:w-full'
-					src={comingSoon.src}
-					width={comingSoon.width}
-					height={comingSoon.height}
-					alt='nsmobile'
-				/>
-			</aside>
-			<div class='flex max-w-lg flex-col items-center text-center lg:shrink'>
-				<h2
-					class='mt-8 max-w-lg px-4 text-3xl font-black text-light lg:mt-16 lg:text-5xl'>
-					Looking for something&nbsp;?
-				</h2>
-				<p
-					class='lg:my-18 lg:text-md my-4 max-w-xl text-sm text-shadow lg:my-8'>
-					It's not here yet, but we'll let you in on a secret. It's coming
-					really, really soon. So sit tight and check back in on <span
-						class='font-bold'>August 31</span
-					>. You just might see something that will blow your socks off!
-				</p>
-				<p class='lg:text-md my-4 text-sm'>
-					Really excited to get in touch with us?
-				</p>
-				<a
-					class='inline-block w-32 rounded-lg bg-primary py-2 text-white'
-					href='https://nsmobile6k.be/users/nsmobile6k'
-					title='contact'>
-					contact us
-				</a>
-			</div>
-		</main>
-		<footer class='mt-8 text-sm text-shadow lg:text-lg'>© Nsmobile</footer>
+<BaseLayout links={links}>
+	<div class="flex flex-col justify-center items-start gap-8 p-8 h-full max-w-3xl" slot="hero">
+		<h1 class="text-6xl font-bold">Transformons vos visions en solutions.</h1>
+		<p>
+			Nous sommes votre guichet unique pour tout ce qui concerne la technologie et la transformation numérique. 
+			De la consultance IT pour optimiser vos opérations, à la création de cartes de visite connectées et de sites web engageants, 
+			en passant par la maintenance sans faille de votre parc informatique et la sécurisation grâce à nos solutions de caméras de surveillance.
+			Nous fusionnons expertise et innovation pour façonner votre succès digital, étape par étape.
+		</p>
+		<a href="#products"  class="btn btn-primary text-white rounded rounded-3xl">Découvrez Nos Produits</a>
 	</div>
+	<div slot="default">
+		<section class="bg-white">
+			<div id="products"></div>
+			<div class="text-center px-8 py-24 text-text_color mx-auto max-w-6xl">
+				<h2 class="text-4xl font-bold mb-4">Nos produits</h2>
+				<p class="font-light">De la maintenance informatique à la création de sites web, en passant par les Tech Cards et notre solution de sécurité innovante avec caméras de surveillance et alarmes intégrées, 
+					notre équipe est dédiée à vous offrir des solutions fiables et sur mesure pour vous accompagner dans votre parcours digital</p>
+			</div>
+		
+			<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 bg-white mx-auto lg:gap-6 max-w-6xl mb-20 lg:mb-48">
+				{allProducts.sort((a,b)=> a.data.order - b.data.order).map((product, index)=> 
+					<a rel="prefetch" href={"products/" + product.slug} class={"card card-compact rounded-xl flex flex-col w-4/5 mx-auto lg:w-auto justify-start items-center p-4 min-w-64 gap-6 text-left z-" + ((index+1) * 10)}>
+						<figure class="shrink-0 bg-cover bg-hero_pattern rounded-xl flex flex-col justify-center items-center h-40 w-full" >
+							<img class="w-28" src={product.data.img}/>
+						</figure>
+							<h3 class="shrink-0 card-title w-full ">{product.data.card_title}</h3>
+							<p class="font-light text-sm grow text-sm">{product.data.card_excerpt}</p>
+							<div class="shrink-0  flex w-full justify-end">
+								<span class="link link-hover text-blue-400">En savoir plus</span>
+							</div>
+						</div>
+					</a>
+				)}
 
-	<style>
-		h1,
-		h2 {
-			font-family: 'Roboto', sans-serif;
-		}
-		h2 {
-			-webkit-text-stroke: 1px #7e72f4;
-			text-stroke: 1px #7e72f4;
-		}
-	</style>
+			</div>
+		</section>
+		<section class="bg-background_light text-text_color">
+			<div id="team"></div>
+			<div class="text-center px-8 py-24 mx-auto max-w-6xl flex flex-col lg:flex-row justify-between ">
+				<div class="text-start lg:w-1/2">
+					<h2 class="text-4xl font-bold mb-4">Notre équipe</h2>
+					<div>
+						<p>
+							Chez NSmobile, nous croyons fermement en la capacité de la technologie à simplifier nos vies au quotidien. Notre mission est de rendre votre parcours plus fluide. Notre équipe est à l'écoute pour mieux comprendre vos besoins, et ensemble, nous façonnons vos projets pour concrétiser vos aspirations.
+						</p>
+						<p class="mt-2">
+							Composée exclusivement d'experts en informatique et de techniciens chevronnés, notre équipe investit pleinement dans la maîtrise, l'expérience et la qualité. Cela nous permet de mettre le focus là où ça compte vraiment, laissant le marketing et la visibilité à ceux qui en ont réelement besoins. Vous avez des objectifs à atteindre, et nous avons les compétences pour vous y emmener.
+						</p>
+					</div>
+					<div class="flex flex-col items-start gap-2 mt-8">
+						<a href="https://www.nsmobile6k.be/users/nsmobile6k"  class="btn btn-primary text-white rounded rounded-3xl">Contactez-nous</a>
+						<a href="https://www.nsmobile6k.be/users/nsmobile6k"  class="btn btn-secondary text-white rounded rounded-3xl">Commencer un projet</a>
+					</div>
+
+				</div>
+				<aside class="lg:w-1/2 ">
+					<img src={teamIMG.src}/>
+				</aside>
+			</div>
+		</section>
+		<section class="bg-white">
+			<div id="partners"></div>
+			<div class="text-center px-8 py-24 text-text_color mx-auto max-w-6xl">
+				<h2 class="text-4xl font-bold mb-4">Ils nous font confiance</h2>
+				<p class="font-light mb-8">
+					La satisfaction de nos clients est notre plus grande récompense. 
+					Découvrez ce que disent ceux qui ont fait appels à nos services pour leurs besoins personnels et professionnels.
+				</p>
+				<div class="flex flex-wrap items-center justify-center gap-8 ">
+					{allTestimonials.sort((a,b)=> a.data.order - b.data.order).map(async testimonial=>{
+						const  {Content} = await testimonial.render();
+						return (
+							<div class="w-72 flex flex-col p-8 bg-background_light rounded-lg items-center gap-4 mx-auto">
+								<div class="rating">
+									{[0,1,2,3,4].map(amount => <input type="radio" name={`rating-${testimonial.data.order}`} class={`mask mask-star-2 bg-orange-400 pointer-events-none`} checked={testimonial.data.stars > amount}/>) }
+								</div>
+								<div class="text-sm h-28">
+									<Content />
+								</div>
+								<h3 class="font-bold">{testimonial.data.name}</h3>
+							</div> 
+						)
+					})}
+				</div>
+			</div>
+		</section>
+		<section class="bg-background_light">
+			<div id="contact"></div>
+			<div class="text-center px-8 py-24 text-text_color mx-auto max-w-6xl">
+				<h2 class="text-4xl font-bold mb-4">Débutez maintenant</h2>
+				<p class="font-light mb-8">
+					La satisfaction de nos clients est notre plus grande récompense. 
+					Découvrez ce que disent ceux qui ont fait appels à nos services pour leurs besoins personnels et professionnels.
+				</p>
+				<a href="https://www.nsmobile6k.be/users/nsmobile6k"  class="btn btn-primary text-white rounded rounded-3xl">Contactez-nous</a>
+			</div>
+		</section>
+	</div>
 </BaseLayout>
