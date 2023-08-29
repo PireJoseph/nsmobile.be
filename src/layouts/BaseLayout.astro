@@ -1,73 +1,73 @@
 ---
-import Hero from '../components/Hero.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import Hero from "../components/Hero.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
 export interface Props {
-	title?: string;
-	links: any;
+  title?: string;
+  links: any;
 }
 
-const { title = 'NSmobile.be', links } = Astro.props;
+const { title = "NSmobile.be", links } = Astro.props;
 ---
+
 <!DOCTYPE html>
-<html lang='fr' class="scroll-smooth">
-	<head>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-		<meta
-			name='description'
-			content="site vitrine d'Nsmobile, votre partenaire IT. Consulutance IT, carte de visite connectée, réparation de smartphones, maintenace ordinateurs.
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="site vitrine d'Nsmobile, votre partenaire IT. Consulutance IT, carte de visite connectée, réparation de smartphones, maintenace ordinateurs.
 		disponible 7/7 de 11h à 23h00"
-		/>
-		<meta
-			name='keywords'
-			content='NSmobile, IT, informatique, réparation, maintenance, consultance, smartphone, ordinateur, tablette, carte de visite connectée, conseils'
-		/>
-		<link rel='icon' type='image/webp' href='/favicon.webp' />
-		<link rel='preconnect' href='https://fonts.googleapis.com' />
-		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-		<link
-			href='https://fonts.googleapis.com/css2?family=Urbanist:wght@300;500;700&display=swap'
-			rel='stylesheet'
-		/>
-		<meta name='author' content='Nsmobile' />
-		<meta name='generator' content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body >
-		<script
-			type="text/partytown"
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=GTM-KQZS7K8C"
-		></script>
-		<script type="text/partytown">
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				window.dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
-			gtag("config", "GTM-KQZS7K8C");
-		</script>
-		<div id="home"></div>
-		<Hero>
-			<Navbar slot="navbar" links={links}/>
-			<slot name='hero' slot="content"/>
-		</Hero>	
-		<div >
-			<slot name="default"/>
-		</div>
-		<Footer />
-	</body>
+    />
+    <meta
+      name="keywords"
+      content="NSmobile, IT, informatique, réparation, maintenance, consultance, smartphone, ordinateur, tablette, carte de visite connectée, conseils"
+    />
+    <link rel="icon" type="image/webp" href="/favicon.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="author" content="Nsmobile" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=GTM-KQZS7K8C"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GTM-KQZS7K8C");
+    </script>
+    <div id="home"></div>
+    <Hero>
+      <Navbar slot="navbar" links={links} />
+      <slot name="hero" slot="content" />
+    </Hero>
+    <div>
+      <slot name="default" />
+    </div>
+    <Footer />
+  </body>
 </html>
 <style is:global>
-	@font-face {
-		font-family: 'Urbanist', sans-serif;
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
-	}
-	:root {
-		font-family: 'Urbanist', sans-serif;
-	}
+  @font-face {
+    font-family: "Urbanist", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    font-family: "Urbanist", sans-serif;
+  }
 </style>

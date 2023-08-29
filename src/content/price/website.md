@@ -1,5 +1,6 @@
 ---
 ---
+
 Découvrez notre approche transparente en matière de tarification, adaptée pour répondre à vos besoins spécifiques en matière de création de site web :
 
 Devis Personnalisé : Chaque projet de création de site web est unique. Nous croyons en l'importance de fournir des tarifs précis en fonction de vos besoins spécifiques. C'est pourquoi nous vous encourageons à remplir notre formulaire de demande pour nous permettre de mieux comprendre vos exigences.
