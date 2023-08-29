@@ -1,7 +1,7 @@
 ---
-import Logo from "../../public/favicon.webp";
+import Logo from '../../public/favicon.webp'
 
-const { links } = Astro.props;
+const { links } = Astro.props
 ---
 
 <div class="navbar px-4">
@@ -27,7 +27,7 @@ const { links } = Astro.props;
       >
         {
           links.map((link: any) => {
-            const { name, path, children } = link;
+            const { name, path, children } = link
             if (children) {
               return (
                 <li>
@@ -42,7 +42,7 @@ const { links } = Astro.props;
                     ))}
                   </ul>
                 </li>
-              );
+              )
             }
             return (
               <li>
@@ -50,7 +50,7 @@ const { links } = Astro.props;
                   {name}
                 </a>
               </li>
-            );
+            )
           })
         }
       </ul>
@@ -76,7 +76,7 @@ const { links } = Astro.props;
     <ul class="menu menu-horizontal px-1">
       {
         links.map((link: any, index: number) => {
-          const { name, path, children } = link;
+          const { name, path, children } = link
           if (children) {
             return (
               <li tabindex={index}>
@@ -93,7 +93,7 @@ const { links } = Astro.props;
                   </ul>
                 </details>
               </li>
-            );
+            )
           }
           return (
             <li>
@@ -101,7 +101,7 @@ const { links } = Astro.props;
                 {name}
               </a>
             </li>
-          );
+          )
         })
       }
     </ul>

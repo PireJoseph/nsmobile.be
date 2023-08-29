@@ -1,49 +1,49 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro'
 
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, getEntry } from 'astro:content'
 
-const { productEntry } = Astro.props;
+const { productEntry } = Astro.props
 
 export async function getStaticPaths() {
-  const productEntries = await getCollection("product");
+  const productEntries = await getCollection('product')
   return productEntries.map((productEntry: any) => ({
     params: { slug: productEntry.slug },
     props: { productEntry },
-  }));
+  }))
 }
 
 const links = [
   {
-    name: "Comment ?",
-    path: "#how",
+    name: 'Comment ?',
+    path: '#how',
   },
   {
-    name: "Fonctionnalités",
-    path: "#features",
+    name: 'Fonctionnalités',
+    path: '#features',
   },
   {
-    name: "Tarifs",
-    path: "#price",
+    name: 'Tarifs',
+    path: '#price',
   },
   {
-    name: "Formulaire",
-    path: "#form",
+    name: 'Formulaire',
+    path: '#form',
   },
-];
+]
 
-const stepsColors = ["#D9D9D9", "#C51162", "#10B5D1", "#FFD600"];
+const stepsColors = ['#D9D9D9', '#C51162', '#10B5D1', '#FFD600']
 
-const howEntry = await getEntry(productEntry.data.how);
-const { Content: HowEntryContent } = await howEntry.render();
-const featuresEntry = await getEntry(productEntry.data.features);
-const { Content: FeaturesEntryContent } = await featuresEntry.render();
-const priceEntry = await getEntry(productEntry.data.price);
-const { Content: PriceEntryContent } = await priceEntry.render();
-const formEntry = await getEntry(productEntry.data.form);
-const { Content: FormEntryContent } = await formEntry.render();
+const howEntry = await getEntry(productEntry.data.how)
+const { Content: HowEntryContent } = await howEntry.render()
+const featuresEntry = await getEntry(productEntry.data.features)
+const { Content: FeaturesEntryContent } = await featuresEntry.render()
+const priceEntry = await getEntry(productEntry.data.price)
+const { Content: PriceEntryContent } = await priceEntry.render()
+const formEntry = await getEntry(productEntry.data.form)
+const { Content: FormEntryContent } = await formEntry.render()
 
-export const prerender = true;
+export const prerender = true
 ---
 
 <BaseLayout links={links} title={productEntry.data.card_title}>
