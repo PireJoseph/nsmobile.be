@@ -1,7 +1,7 @@
 ---
 ---
 
-3. Tarifs : Nos tarifs sont conçus pour être flexibles et adaptés aux besoins spécifiques de chaque entreprise. Comprenez que chaque situation est unique, c'est pourquoi nous préférons discuter de vos besoins en détail avant de vous fournir un devis précis. Voici comment fonctionne notre processus tarifaire :
+Nos tarifs sont conçus pour être flexibles et adaptés aux besoins spécifiques de chaque entreprise. Comprenez que chaque situation est unique, c'est pourquoi nous préférons discuter de vos besoins en détail avant de vous fournir un devis précis. Voici comment fonctionne notre processus tarifaire :
 
 <h2 class="font-bold">1) Formulaire de demande :</h2>
 Pour obtenir des informations sur nos tarifs, veuillez remplir notre formulaire de demande en ligne. Ce formulaire nous permettra de mieux comprendre vos exigences et de préparer une proposition tarifaire en conséquence.
