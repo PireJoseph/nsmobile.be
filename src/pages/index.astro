@@ -76,7 +76,7 @@ export const prerender = true
             .sort((a, b) => a.data.order - b.data.order)
             .map((product, index) => (
               <a
-                rel="prefetch"
+                
                 href={'products/' + product.slug}
                 class={
                   'z- card card-compact mx-auto flex w-4/5 min-w-64 flex-col items-center justify-start gap-6 rounded-xl p-4 text-left lg:w-auto' +

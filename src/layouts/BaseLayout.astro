@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 import Hero from '../components/Hero.astro'
 import Navbar from '../components/Navbar.astro'
 import Footer from '../components/Footer.astro'
@@ -12,7 +14,7 @@ const { title = 'NSmobile.be', links } = Astro.props
 ---
 
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr" class="scroll-smooth" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,6 +37,7 @@ const { title = 'NSmobile.be', links } = Astro.props
     <meta name="author" content="Nsmobile" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <script
