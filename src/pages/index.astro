@@ -84,7 +84,7 @@ export const prerender = true
                 }
               >
                 <figure class="flex h-40 w-full shrink-0 flex-col items-center justify-center rounded-xl bg-hero_pattern bg-cover">
-                  <img class="w-28" src={product.data.img} />
+                  <img width="112px" height="auto" class="w-28" alt={product.data.card_title} src={product.data.img} />
                 </figure>
                 <h3 class="card-title w-full shrink-0 ">
                   {product.data.card_title}
@@ -140,7 +140,7 @@ export const prerender = true
           </div>
         </div>
         <aside class="lg:w-1/2">
-          <img src={teamIMG.src} />
+          <img src={teamIMG.src} width={teamIMG.width + 'px'} height={teamIMG.height + 'px'} alt="L'équipe" />
         </aside>
       </div>
     </section>
@@ -168,6 +168,7 @@ export const prerender = true
                           name={`rating-${testimonial.data.order}`}
                           class={`mask mask-star-2 pointer-events-none bg-orange-400`}
                           checked={testimonial.data.stars > amount}
+                          aria-label="rating"
                         />
                       ))}
                     </div>

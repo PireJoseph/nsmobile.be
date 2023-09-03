@@ -12,6 +12,7 @@ const productCollection = defineCollection({
     features: reference('features'),
     price: reference('price'),
     form: reference('form'),
+    seo: reference('seo').optional(),
   }),
 })
 
@@ -68,6 +69,17 @@ const testimonialCollection = defineCollection({
   }),
 })
 
+const SEOCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string().min(3).max(100).optional(), // title of the page
+    description: z.string().min(3).max(100).optional(), // description of the page
+    keywords: z.array(z.string().min(2).max(100)).optional(), // keywords for the page
+    image: z.string().min(50).max(500).optional(), // url of the image
+    imageAlt: z.string().min(3).max(100).optional(), // description of the image
+  }),
+})
+
 export const collections = {
   product: productCollection,
   how: howCollection,
@@ -75,4 +87,5 @@ export const collections = {
   price: priceCollection,
   form: formCollection,
   testimonial: testimonialCollection,
+  seo: SEOCollection,
 }

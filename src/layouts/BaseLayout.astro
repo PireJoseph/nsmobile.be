@@ -1,6 +1,10 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 
+import type { CollectionEntry } from 'astro:content';
+
+import { SEO } from "astro-seo";
+
 import Hero from '../components/Hero.astro'
 import Navbar from '../components/Navbar.astro'
 import Footer from '../components/Footer.astro'
@@ -14,15 +18,10 @@ const { title = 'NSmobile.be', links } = Astro.props
 ---
 
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth" transition:animate="none">
+<html lang="fr" class="scroll-smooth" >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="site vitrine d'Nsmobile, votre partenaire IT. Consulutance IT, carte de visite connectée, réparation de smartphones, maintenace ordinateurs.
-		disponible 7/7 de 11h à 23h00"
-    />
     <meta
       name="keywords"
       content="NSmobile, IT, informatique, réparation, maintenance, consultance, smartphone, ordinateur, tablette, carte de visite connectée, conseils"
@@ -36,28 +35,18 @@ const { title = 'NSmobile.be', links } = Astro.props
     />
     <meta name="author" content="Nsmobile" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
     <ViewTransitions />
+    <SEO 
+      title={title}
+      description={"site vitrine d'Nsmobile, votre partenaire IT. Consulutance IT, carte de visite connectée, réparation de smartphones, maintenace ordinateurs. disponible 7/7 de 11h à 23h00"} />
   </head>
   <body>
-    <script
-      type="text/partytown"
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=GTM-KQZS7K8C"></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        window.dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
-      gtag('config', 'GTM-KQZS7K8C')
-    </script>
     <div id="home"></div>
-    <Hero>
-      <Navbar slot="navbar" links={links} />
-      <slot name="hero" slot="content" />
+    <Hero transition:name="hero" transition:animate="fade"> 
+      <Navbar links={links} slot="navbar" />
+      <slot  name="hero" slot="content"  />
     </Hero>
-    <div>
+    <div transition:name="content" transition:animate="fade">
       <slot name="default" />
     </div>
     <Footer />

@@ -9,5 +9,6 @@ order: 1
 how: card
 features: card
 price: card
-form: card     
+form: card
+seo: card     
 ---

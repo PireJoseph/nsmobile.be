@@ -8,4 +8,5 @@ how: maintenance
 features: maintenance
 price: maintenance
 form: maintenance
+seo: maintenance
 ---

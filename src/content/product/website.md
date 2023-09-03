@@ -8,4 +8,5 @@ how: website
 features: website
 price: website
 form: website
+seo: website
 ---
